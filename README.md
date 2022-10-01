@@ -1,2 +1,3 @@
 # pypasswordGenerator
-python password generator 
+python password generator
+### Author: Nikhil Patil
