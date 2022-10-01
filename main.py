@@ -5,6 +5,7 @@
 import string
 import secrets
 
+
 LETTERS = string.ascii_letters
 DIGITS = string.digits
 SPECIALCHARS = string.punctuation
