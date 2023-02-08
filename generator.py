@@ -12,7 +12,7 @@ SPECIALCHARS = string.punctuation
 ALPHABET = LETTERS+DIGITS+SPECIALCHARS  # Concatnate to create the alphabet
 
 
-def integerLenPassword():
+def cli_integerLenPassword():
     '''
     Name: integerLenPassword
     Purpose: Creates a password of variable length as indicated by user
@@ -34,3 +34,12 @@ def integerLenPassword():
         else:
             print("\nThe value entered is invalid\n")
             failsafe += 1
+
+def gui_integerLenPassword(length):
+    password = ""
+    for i in range(length):
+        password += "".join(secrets.choice(ALPHABET))
+    return password
+    
+if __name__ == "__main__":
+    cli_integerLenPassword()
