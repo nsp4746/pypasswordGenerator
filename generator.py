@@ -35,10 +35,19 @@ def cli_integerLenPassword():
             failsafe += 1
 
 def mkInt(s):
+    '''
+    Function to make the entry that will passsed in by 
+    the GUI an integer
+    '''
     s = s.strip()
     return int(s) if s else 0
 
 def gui_integerLenPassword(length):
+    '''
+    The function used by the GUI to generate the password.
+    Functionally the same as the CLI version of it, only this one takes
+    a parameter. 
+    '''
     password = ""
     length = mkInt(length)
     for i in range(length):
@@ -46,4 +55,4 @@ def gui_integerLenPassword(length):
     return password
     
 if __name__ == "__main__":
-    print(gui_integerLenPassword("10"))
+    print(cli_integerLenPassword())
