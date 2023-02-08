@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import *
-from tkinter import ttk
 from tkinter import messagebox
 from generator import *
 
@@ -13,28 +12,43 @@ def PopUp():
 
 def prompt():
     messagebox.showinfo("New Notification","Click okay to proceed")
-    
+
+
+def createCanvas(window, width, height):
+    canvas = tk.Canvas(window,width=width,height=height)
+    return canvas
+
+
+
+
+
 def intialize():
     window = tk.Tk()
-
     window.geometry("360x360")
-
-    label = tk.Label(window,text="Hello World",foreground="black",background="white")
-    label.pack(pady=15)
-
-    ttk.Button(window, text="Open",command=prompt).pack()
-
-#--------------------------------------------
     
+    canvas = createCanvas(window,360,360)
+    canvas.pack()
+    
+    entry = tk.Entry(window)
+    canvas.create_window(180,300,window=entry)
+    length = entry.get()
 
+    def genPassword():
+        label = tk.Label(window, text=gui_integerLenPassword(length))
+        canvas.create_window(180,240, window=label)
+        
+    button = tk.Button(text="Generate Password", command=genPassword)
 
-    PopUp()
+    canvas.create_window(180,180,window=button)
+
+    #PopUp()
     window.mainloop()
-
+    
 def GUI():
     intialize()
 
 def main():
-    intialize()
+    GUI()
 
-main()
+if __name__ == "__main__":
+    main()

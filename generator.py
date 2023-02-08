@@ -11,7 +11,6 @@ DIGITS = string.digits
 SPECIALCHARS = string.punctuation
 ALPHABET = LETTERS+DIGITS+SPECIALCHARS  # Concatnate to create the alphabet
 
-
 def cli_integerLenPassword():
     '''
     Name: integerLenPassword
@@ -35,11 +34,16 @@ def cli_integerLenPassword():
             print("\nThe value entered is invalid\n")
             failsafe += 1
 
+def mkInt(s):
+    s = s.strip()
+    return int(s) if s else 0
+
 def gui_integerLenPassword(length):
     password = ""
+    length = mkInt(length)
     for i in range(length):
         password += "".join(secrets.choice(ALPHABET))
     return password
     
 if __name__ == "__main__":
-    cli_integerLenPassword()
+    print(gui_integerLenPassword("10"))
